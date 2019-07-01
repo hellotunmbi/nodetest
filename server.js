@@ -8,19 +8,24 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cors());
 
 // ROUTES...
-const user = require('./routes/user.route');
+const students = require('./routes/students.route');
 
 app.get('/', function(req, res) {
-  res.json({
+  res.status(200).json({
     status: 200,
     message: 'Hello World'
   });
 });
 
-app.use('/user', user);
+app.use('/students', students);
 
 
 const PORT = 1234;
 const server = app.listen(PORT, () => {
   console.log('server started on port: 1234');
-})
+});
+
+
+module.exports = server;
+
+// chai, chai-http, mocha

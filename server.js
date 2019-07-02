@@ -4,17 +4,17 @@ import cors from 'cors';
 
 const app = express();
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // ROUTES...
 const students = require('./routes/students.route');
 
-app.get('/', function(req, res) {
-  res.status(200).json({
-    status: 200,
-    message: 'Hello World'
-  });
+app.get('/', (req, res) => {
+	res.status(200).json({
+		status: 200,
+		message: 'Hello World',
+	});
 });
 
 app.use('/students', students);
@@ -22,7 +22,7 @@ app.use('/students', students);
 
 const PORT = 1234;
 const server = app.listen(PORT, () => {
-  console.log('server started on port: 1234');
+	console.log(`server started on port: ${1234}`);
 });
 
 
